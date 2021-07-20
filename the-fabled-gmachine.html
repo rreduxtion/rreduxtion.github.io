@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+<head>
+	<title>RReduX: The Fabled GMachine</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />	
+	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+	<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+	<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+	<script src="js/bootstrap.min.js"></script>
+	<script>
+	  	window.dataLayer = window.dataLayer || [];
+	  	function gtag(){dataLayer.push(arguments);}
+	  	gtag('js', new Date());
+
+	  	gtag('config', 'UA-136594745-1');
+	</script>
+	<link rel="stylesheet" href="css/rredux.css?version=5" type="text/css" />
+</head>
+<body class="post">
+	<!-- (BEGIN) HEADER: NEEDS TO BE ON EVERY PAGE -->
+	<nav class="navbar navbar-expand-sm navbar-dark">
+		<a class="navbar-brand logo glow" href="/"><img src="images/logo.png" alt=""></a>
+		<div class="nav-pad">
+			<ul class="collapse navbar-collapse no-style">
+				<li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+				<li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+				<li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+				<li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+				<!--<li class="nav-item"><a class="nav-link" href="https://github.com/rreduxtion"><img src="images/github.png"/></a></li>-->
+				<!--<li class="nav-item"><a class="nav-link" href="http://twitter.com/rreduxtion"><img src="images/twitter.png"/></a></li>-->
+				<li class="nav-item"><a class="nav-link" href="mailto:info@rredux.com"><img src="images/email.png"/></a></li>
+			</ul>
+		</div>
+	</nav>
+	<!-- (END) HEADER: NEEDS TO BE ON EVERY PAGE -->
+	<div>
+		<div class="container pad">
+			<div class="row justify-content-center">
+				<h4 class="glow outline">The Fabled GMachine</h4>
+			</div>
+			<div class="row justify-content-center">
+				<p>Marko A. Rodriguez (March 20, 2019)</p>
+			</div>
+			<div class="row">&nbsp</div>
+			<div class="row text-box glow" style="padding:35px;">
+<!-- (BEGIN) BLOG POST CONTENT -->
+<p>
+The <text class="r">R</text><text class="redux">ReduX</text>GMachine&trade; is a theoretical <a href="https://en.wikipedia.org/wiki/Computer">computing machine</a> &mdash; a concept. GMachine can manipulate any data structure using any processing engine via any query or programming language. In recent years, there has been an explosion in the number and types of databases and file formats (data structures), a profusion of stream and batch analytic engines (data processors), and an ever expanding gaggle of programming and query languages (data languages). To date, these technologies stand loosely coupled, finding their union within the confines of every data engineer's domain-specific application. GMachine strives for a domain-agnostic integration &mdash; a universal distributed computing machine.
+</p>
+
+<section>The Rise of the Data Space</section>
+
+<p>
+<a href="http://apache.org"><img src="the-fabled-gmachine-images/asf-logo.png" class="glow post-image-left" style="width:40%"/></a>
+Over the last decade, significant advances have been made in the "data space." This is due, in part, to open source foundations such as the <a href="http://apache.org/">Apache Software Foundation</a> (ASF) which has curated a cornucopia of application-agnostic data technology projects. The ASF maintains 24 <a href="https://projects.apache.org/projects.html?category#database">database</a> projects, 49 <a href="https://projects.apache.org/projects.html?category#big-data">data storage and processing</a> projects, and while not easily determined from their listing, at least 5 query language projects. The modern day software engineer is able design and develop distributed systems that were impossible for the typical engineer of preceding decades to even fathom, much less bring into being. However, while sophisticated technologies are readily and freely available, the modern engineer faces a unique challenge &mdash; managing the integration of these technologies as their respective relevances ebb and flow in synchrony with the theoretical advances and subsequent open source releases of projects which are bred, in large part, within the major data companies such as <a href="https://opensource.google.com/">Google</a>, <a href="https://aws.amazon.com/opensource/">Amazon</a>, <a href="https://opensource.facebook.com/">Facebook</a>, and <a href="https://twitter.github.io/">Twitter</a>.
+</p>
+
+<p>
+<a href="the-fabled-gmachine-images/databases.png"><img src="the-fabled-gmachine-images/databases.png" class="post-image-right" style="width:30%"/></a>
+"<a href="https://en.wikipedia.org/wiki/NoSQL">NoSQL</a>" databases were designed and developed by experts in data storage, scaling, and availability. Unfortunately, for many of these projects, queryability was a periphery concern. These databases either provide a collection of language-dependent <a href="https://en.wikipedia.org/wiki/Application_programming_interface">APIs</a> (e.g. a Java, Scala, or Python library) and/or offer a simple database-specific query language with limited expressivity. While the user is secure knowing that their application will be fault tolerant and will scale beyond their needs, their code is insecurely intertwined <em>with</em> and fragmented <em>by</em> the database's various exposed integration points. Some of the application's queries are accomplished using the database's custom query language. Some of the more expressive queries require direct API access. Then there are those queries that are so compute intensive that they demand a custom "server plugin" to be deployed to the cluster (typically as a <a href="https://en.wikipedia.org/wiki/JAR_(file_format)">JAR</a> file) so as to limit the movement of data between the cluster and the application. Consequently, the application's database code incorporates different data access patterns and thus, different types of test cases and maintenance procedures. The application is left tightly coupled (unnecessarily so) to the idiosyncrasies of the underlying database.
+</p>
+
+<p>
+<a href="the-fabled-gmachine-images/processors.png"><img src="the-fabled-gmachine-images/processors.png" class="post-image-left" style="width:30%;"/></a>
+Historically, and through to today, databases have been designed for real-time, transactional processing (<a href="https://en.wikipedia.org/wiki/Online_transaction_processing">OLTP</a>). Individual queries are expected to only access, filter, aggregate, and return a limited amount of data. This expectation ensures sub-second return times. For queries that access a significant amount of data, an auxiliary <a href="https://en.wikipedia.org/wiki/Batch_processing">batch</a> or <a href="https://en.wikipedia.org/wiki/Stream_processing">stream</a> processor is leveraged (<a href="https://en.wikipedia.org/wiki/Online_analytical_processing">OLAP</a>) and the engineer is responsible for yet another data access pattern. A decade ago, OLAP processing meant integrating the monolithic <a href="http://hadoop.apache.org">Apache Hadoop</a> project and managing the infrastructure complexities associated with its custom cluster-oriented file system (<a href="https://en.wikipedia.org/wiki/Apache_Hadoop#Hadoop_distributed_file_system">HDFS</a>). Over the last five years or so, <a href="http://spark.apache.org">Apache Spark</a> has risen to become a major player in the batch analytics space due in part to its in-memory processing capabilities and its simple <a href="https://en.wikipedia.org/wiki/Fluent_interface">fluent DSL</a>. These two batch processors have reigned as the staples of most every data application. However, this is currently changing given the rapidly emerging stream computing space and its abundance of competing projects such as <a href="http://storm.apache.org">Apache Storm</a>, <a href="http://flink.apache.org">Apache Flink</a>, <a href="http://nemo.apache.org">Apache Nemo</a>, <a href="http://apex.apache.org">Apache Apex</a>, and many (many) others. Application engineers that originally wrote extensive libraries of Java-specific Hadoop-based <a href="https://en.wikipedia.org/wiki/MapReduce">MapReduce</a> jobs transitioned to using the more convenient fluent <a href="https://en.wikipedia.org/wiki/Domain-specific_language">DSL</a> of Spark and now are needing to study and integrate with the latest stream processor project. Integration not only requires writing custom data processing logic, but also requires developing bindings between the processor and the data source (database). All the while, with each passing year, it is possible that the engineer's chosen batch/stream-technology will need to be replaced as new processors emerge on the scene.
+</p>
+
+<p>
+<a href="the-fabled-gmachine-images/languages.png"><img src="the-fabled-gmachine-images/languages.png" class="post-image-right" style="width:30%;"/></a>
+Every sufficiently complex language (i.e. those supporting some form of <a href="https://en.wikipedia.org/wiki/Recursion_(computer_science)">recursion</a>, <a href="https://en.wikipedia.org/wiki/Branch_(computer_science)">branching</a>, and state) is considered <a href="https://en.wikipedia.org/wiki/Turing_completeness">universal</a>. A universal language can express any computation that any other universal language can express. For this reason, it is generally believed that the universal <a href="https://en.wikipedia.org/wiki/SQL">SQL</a> query language is sufficient for all data processing needs &mdash; from real-time database querying to offline analytics. Application developers have a significant burden lifted from their shoulders when choosing SQL-compliant data technologies. Their applications are no longer coupled to technology-specific APIs and query languages (save for an insignificant amount of "connection code") and their SQL knowledge naturally transfers to all SQL-supporting technologies. Unfortunately, few modern data technologies have adopted SQL. The primary reasons are 1) the underlying data structure is not conveniently manipulated using the table/row-semantics of SQL (e.g. <a href="https://www.mongodb.com/">MongoDB</a> [documents] and <a href="http://janusgraph.org/">JanusGraph</a> [graph]), 2) the complexities of <a href="https://en.wikipedia.org/wiki/Compiler">compiler</a> and <a href="https://en.wikipedia.org/wiki/Query_plan">execution plan</a> development are too difficult to implement for technologists not versed in language theory and 3) the originally provided APIs and/or simple query language have sufficiently engrained themselves in the user community via their documentation, tutorials, template projects, etc. With respects to (1), while SQL is a <a href="http://wiki.postgresql.org/wiki/Cyclic_Tag_System">universal</a> language, its semantics are not fit for all data processing tasks. In analogy to the numerous programming languages in existence today (with many atop the <a href="https://en.wikipedia.org/wiki/Java_virtual_machine">JVM</a>), there will always be new query languages focused on succinctly expressing particular types of queries (e.g. <a href="https://en.wikipedia.org/wiki/Graph_traversal">graph traversals</a>, <a href="https://en.wikipedia.org/wiki/Matrix_(mathematics)">matrix operations</a>, <a href="https://en.wikipedia.org/wiki/Time_series">time-series analyses</a>, etc.). The modern application engineer can no longer sit comfortably only knowing SQL. Their skills and developed applications must continuously adapt to the changing APIs and query languages of the time.
+</p>
+
+<p>
+Data technology projects will continue to be developed. There will be more databases, there will be more processors, and there will be more query and programming languages. The landscape will change, indefinitely. However, what is not changing (or at least is changing at a much slower pace) is the theoretical foundation on which these technologies are based. <a href="https://en.wikipedia.org/wiki/Category_theory">Category theory</a> exposes the similarities and <a href="https://en.wikipedia.org/wiki/Morphism">morphisms</a> between data structures, stream theory unifies the semantics of both unbounded and bounded (batch) analytics, and <a href="https://en.wikipedia.org/wiki/Turing_completeness">Turing Completeness</a> renders all languages of a certain complexity interchangeable. GMachine focuses on the theory of computing so that when the technology landscape shifts (as it ultimately will), it will be poised to capitalize on the latest advances. To the application engineer, GMachine is a computer. Much like hard drives (databases), GPUs (processors), and compilers (languages) can be swapped on a physical computer with the entailed effects being realized in the machine's time and space performance characteristics, so to does GMachine provide the engineer consistency through the constant flux of advances made in the data space.
+ </p>
+
+<section>Structures, Processes, and Languages</section>
+
+<p>
+<a href="the-fabled-gmachine-images/gstructure.png"><img src="the-fabled-gmachine-images/gstructure.png" class="post-image-right" style="width:35%"/></a>
+A <a href="https://en.wikipedia.org/wiki/Data_structure">data structure</a> is an amalgamation of inter-related data. An individual datum may be a <a href="https://en.wikipedia.org/wiki/Pointer_(computer_programming)">pointer</a>, a <a href="https://en.wikipedia.org/wiki/Boolean_data_type">boolean</a>, an <a href="https://en.wikipedia.org/wiki/Integer_(computer_science)">integer</a>, a <a href="https://en.wikipedia.org/wiki/Floating-point_arithmetic">floating point number</a>, a character <a href="https://en.wikipedia.org/wiki/String_(computer_science)">string</a>, etc. While these primitives are data structures in and of themselves, at the level at which most computing machines are manipulated, such primitives are considered the lowest level demarcations of distinction &mdash; they are the "bits" for creating higher order structures. As such, higher order data structures are simply different ways in which values are organized by pointers. This organization can be abstractly modeled as a graph, where values are vertices and edges are pointers. The relationship between different types of graphically-defined data structures can be understood using <a href="https://en.wikipedia.org/wiki/Category_theory">category theory</a>. Category theory is a theory of form. A data structure can be demonstrated (via <a href="https://en.wikipedia.org/wiki/Morphism">morphisms</a>) to be a generalization of, a specialization of, or equivalent to some other data structure. For instance, a linked list can be graphically modeled as a linear chain of vertices each having a <code>value()</code> vertex and corresponding edge to the <code>next()</code> adjacent vertex in the chain. A map is a list of entry vertices each maintaining edges to respective <code>key()</code> and <code>value()</code> vertices. A relational database <a href="https://en.wikipedia.org/wiki/Table_(database)">table</a> is a list of maps. A row is a map with each <code>key()</code> denoting the column and each <code>value()</code> denoting the particular row/column-entry. A document is a (potentially nested) map of values, lists, and maps. Even within the graph space, where different representations abound, the various <a href="https://www.w3.org/RDF/">RDF</a> and <a href="https://en.wikipedia.org/wiki/Graph_database#Labeled-property_graph">property graph</a> formats can be <a href="https://en.wikipedia.org/wiki/Homomorphism">losslessly mapped</a> to each other. Thus, the concepts of a list, a map, a table, a row, a document, a graph, etc. are all simply terms referring to recurring value/pointer-patterns within the GStructure.
+</p>
+
+<cite>
+<a href="https://www.slideshare.net/joshsh/a-graph-is-a-graph-is-a-graph-equivalence-transformation-and-composition-of-graph-data-models-129403012">A Graph is a Graph is a Graph: Equivalence, Transformations, and Composition of Graph Data Models</a> by Joshua Shinavier.
+</cite>
+
+<cite>
+<a href="https://arxiv.org/abs/1409.3288">Reconciliation of RDF* and Property Graphs</a> by Olaf Hartig.
+</cite>
+
+<cite>
+<a href="https://arxiv.org/abs/0804.0277">Mapping Semantic Networks to Undirected Networks</a> by Marko A. Rodriguez.
+</cite>
+
+<p>
+<a href="the-fabled-gmachine-images/gprocess.png"><img src="the-fabled-gmachine-images/gprocess.png" class="post-image-left" style="width:32%"/></a>
+A data structure is manipulated by a <a href="https://en.wikipedia.org/wiki/Data_processing">process</a>. A process is a list of <a href="https://en.wikipedia.org/wiki/Instruction_set_architecture">instructions</a> generally understood to be <a href="https://en.wikipedia.org/wiki/Function_(mathematics)">functions</a> that transform an input (argument) to an output (result). Every process can be represented as a graph, where the vertices denote functions and the edges represent the communication channels (or <a href="https://en.wikipedia.org/wiki/Pipeline_(computing)">streams</a>) between functions. Data flows through the process graph, where the interconnected functions map, filter, aggregate, and ultimately yield a result. For instance, to access the the first element of a list identified by the id 1, the function <code>get(1)</code> is evaluated. The function <code>next()</code> maps the current list element to its adjacent element. Finally, the value of an element is retrieved via <code>value()</code>. The concatenation of functions is itself a function and thus, the function <code>get(1).next().next().value()</code> retrieves the value of the third element of the list. Recent theoretical advances in stream computing have unified the seemingly disparate domains of serial/parallel, local/distributed, and stream/batch processing. This generalization has been realized in <a href="http://beam.apache.org">Apache Beam</a>'s unified stream programming model. The concepts of OLTP, OLAP, real-time, offline, etc. now seamlessly blur into one another. Moreover, any stream processor whose process graph (<a href="https://en.wikipedia.org/wiki/Query_plan">execution plan</a>) can be represented as a <a href="https://en.wikipedia.org/wiki/Directed_acyclic_graph">directed acyclic graph</a> has been proven to support <a href="https://en.wikipedia.org/wiki/Turing_completeness">universal computation</a>. From real-time database queries to large-scale extractions, transformations, analytics, and loads, all common data processing patterns can be realized as process graphs of the GProcess.
+</p>
+
+
+<cite>
+<a href="https://www.oreilly.com/ideas/the-world-beyond-batch-streaming-101">Streaming 101: The World Beyond Batch</a> by Tyler Akidau.
+</cite>
+
+<cite>
+<a href="https://www.oreilly.com/ideas/the-world-beyond-batch-streaming-102">Streaming 102: The World Beyond Batch</a> by Tyler Akidau.
+</cite>
+
+<cite>
+<a href="https://ai.google/research/pubs/pub43864">The Dataflow Model: A Practical Approach to Balancing Correctness, Latency, and Cost in Massive-Scale, Unbounded, Out-of-Order Data Processing</a> by Tyler Akidau, Robert Bradshaw, Craig Chambers, Slava Chernyak, Rafael J. Fernandez-Moctezuma, Reuven Lax, Sam McVeety, Daniel Mills, Frances Perry, Eric Schmidt, and Sam White.
+</cite>
+<cite>
+<a href="https://zenodo.org/record/2565243">Stream Ring Theory</a> by Marko A. Rodriguez.
+</cite>
+
+<p>
+<a href="the-fabled-gmachine-images/glanguage.png"><img src="the-fabled-gmachine-images/glanguage.png" class="post-image-right" style="width:40%"/></a>
+A <a href="https://en.wikipedia.org/wiki/Query_language">query</a> or <a href="https://en.wikipedia.org/wiki/Programming_language">programming language</a> is any human readable/writable language capable of describing processes that create and manipulate data structures. A compiler translates human code to an <a href="https://en.wikipedia.org/wiki/Query_plan">execution plan</a> aimed at the specific API of the executing database or processor. To decouple the language (and compiler) from the underlying data technology, an intermediate <a href="https://en.wikipedia.org/wiki/Bytecode">bytecode</a> specification can be used. Bytecode is a portable, technology-agnostic definition of a process graph. Language compilers translate human readable/writeable code to bytecode and then the underlying data technology translates the bytecode to an execution plan tailored to its API or query language. For instance, the 4-step list access bytecode function <code>get(1).next().next().value()</code> may be optimized to the single API call <code>get[1][2]</code> if the underlying database supports direct list access. Any language that can compile to the standardized bytecode specification can automatically execute against any bytecode-supporting database or processor. The application engineer can then choose a language to use based on their expertise, the types of data structures they plan to manipulate, and the types of algorithms they intend to execute. Moreover, using the same language, the engineer can execute both real-time database queries and long-running analytical jobs while remaining confident that the next generation data technologies will support (or will be made to support) the common bytecode specification known as the GLanguage.
+</p>
+
+<cite>
+<a href="https://arxiv.org/abs/1508.03843">The Gremlin Graph Traversal Machine and Language</a> by Marko A. Rodriguez.
+</cite>
+
+<cite>
+<a href="https://tinkerpop.apache.org/gremlin.html">Apache TinkerPop's Gremlin</a> by Apache TinkerPop.
+</cite>
+
+<section>The Grand Unification</section>
+
+<p>
+Database technologies like <a href="https://redis.io/">Redis</a> and <a href="http://ignite.apache.org">Apache Ignite</a>, stream technologies like <a href="https://beam.apache.org/">Apache Beam</a>, and language technologies like <a href="http://tinkerpop.apache.org">Apache TinkerPop</a>'s <a href="https://tinkerpop.apache.org/gremlin.html">Gremlin</a> and <a href="https://calcite.apache.org/">Apache Calcite</a> are pushing for agnosticism in their respective domains. While not explicitly stated, their collective goal points towards a data technology that supports the processing of any data structure, using any processor, controlled by any query language. To date, no such system currently unifies all these concepts into a universal distributed computing machine. One machine that could accomplish this is the fabled GMachine.
+<br/>
+<br/>
+<a href="the-fabled-gmachine-images/gmachine-logo.png"><img src="the-fabled-gmachine-images/gmachine-logo.png" style="margin-left:auto; margin-right:auto; display:block; width:35%;"/></a>
+</p>
+<!-- (END) BLOG POST CONTENT -->
+			</div>
+		</div>
+	</div>
+	<!-- (BEGIN) FOOTER: NEEDS TO BE ON EVERY PAGE -->
+	<footer class="page-footer fixed-bottom">
+		<p style="display:inline-block; font-size: 15px;">&copy; 2019 </p>
+		<p class="foot-r">R</p><p class="foot-redux">ReduX, Inc.</p>
+	</footer>
+	<!-- (END) FOOTER: NEEDS TO BE ON EVERY PAGE -->
+</body>
+</html>

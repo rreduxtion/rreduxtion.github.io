@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+	<title>RReduX: The Path to TinkerPop4</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />	
+	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+	<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+	<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+	<script src="js/bootstrap.min.js"></script>
+	<script>
+	  	window.dataLayer = window.dataLayer || [];
+	  	function gtag(){dataLayer.push(arguments);}
+	  	gtag('js', new Date());
+
+	  	gtag('config', 'UA-136594745-1');
+	</script>
+	<link rel="stylesheet" href="css/rredux.css?version=5" type="text/css" />
+</head>
+<body class="post">
+	<!-- (BEGIN) HEADER: NEEDS TO BE ON EVERY PAGE -->
+	<nav class="navbar navbar-expand-sm navbar-dark">
+		<a class="navbar-brand logo glow" href="/"><img src="images/logo.png" alt=""></a>
+		<div class="nav-pad">
+			<ul class="collapse navbar-collapse no-style">
+				<li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+				<li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+				<li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+				<li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+				<!--<li class="nav-item"><a class="nav-link" href="https://github.com/rreduxtion"><img src="images/github.png"/></a></li>-->
+				<!--<li class="nav-item"><a class="nav-link" href="http://twitter.com/rreduxtion"><img src="images/twitter.png"/></a></li>-->
+				<li class="nav-item"><a class="nav-link" href="mailto:info@rredux.com"><img src="images/email.png"/></a></li>
+			</ul>
+		</div>
+	</nav>
+	<!-- (END) HEADER: NEEDS TO BE ON EVERY PAGE -->
+	<div>
+		<div class="container pad">
+			<div class="row justify-content-center">
+				<h4 class="glow outline">The Path to TinkerPop4</h4>
+			</div>
+			<div class="row justify-content-center">
+				<p>Marko A. Rodriguez (April 3, 2019)</p>
+			</div>
+			<div class="row">&nbsp</div>
+			<div class="row text-box glow" style="padding:35px;">
+<!-- (BEGIN) BLOG POST CONTENT -->
+<p>
+<a href="the-path-to-tinkerpop4-images/marko-gremlin.png"><img src="the-path-to-tinkerpop4-images/marko-gremlin.png" class="post-image-right" style="width:25%;"/></a>
+ Dr. <a href="http://markorodriguez.com">Marko A. Rodriguez</a> is currently leading the effort to bring TinkerPop4 to general availability and in order to do so in a focused and effective manner, he is seeking sponsorship from the major industry users of the technology.
+<br/>
+<br/>
+<a href="http://tinkerpop.apache.org">Apache TinkerPop</a>'s next major release is TinkerPop4. The design process started at the end of 2017 and as of February 2019, components are currently being prototyped on the repository's <code>tp4/</code>-<a href="https://github.com/apache/tinkerpop/tree/tp4">branch</a> and discussed on the <a href="https://groups.google.com/forum/#!forum/gremlin-users">Gremlin-Users</a> mailing list. TinkerPop4 incorporates the best ideas of TinkerPop3 and rectifies various shortcomings that have made themselves apparent over the last 4 years of industrial use. TinkerPop4 should appeal to the various project stakeholders by delivering a more compact Gremlin graph traversal language (graph users), an easier to reason about bytecode specification (language vendors), a simpler data and I/O interface (graph system vendors), and a universal execution engine (processor vendors).
+</p>
+
+<section>From TinkerPop3 to TinkerPop4</section>
+
+<p><a href="the-path-to-tinkerpop4-images/tinkerpop3-vendors.png"><img src="the-path-to-tinkerpop4-images/tinkerpop3-vendors.png" class="post-image-left" style="width:35%;"/></a>The TinkerPop project was founded in 2009. TinkerPop3 is arguably the most successful version of the project. Engineering on TinkerPop3 began in early 2015 and was driven primarily by <a href="http://markorodriguez.com">Marko A. Rodriguez</a>, <a href="http://stephen.genoprime.com/">Stephen Mallette</a>, and <a href="http://gremlin.guru">Daniel Kuppitz</a> (see <code>master/</code>-branch <a href="https://github.com/apache/tinkerpop/graphs/contributors">contributors</a>). These individuals were employed by <a href="http://datastax.com">DataStax</a> to focus on TinkerPop3 development and promotion. They were also responsible for coordinating with the engineers developing DataStax's TinkerPop-enabled graph database product, <a href="https://www.datastax.com/products/datastax-enterprise-graph">DSE Graph</a>. From the onset of the project, DataStax repeatedly stressed the importance of <a href="http://tinkerpop.apache.org/gremlin.html">Gremlin</a> becoming an industry standard to help stabilize the nascent graph database market. 
+<br/>
+<br/>
+The first positive sign of adoption came early in TinkerPop3's GA release cycle when IBM announced <a href="https://janusgraph.org/">JanusGraph</a> and its exclusive support for TinkerPop3. A year later, Microsoft announced the use of Gremlin in <a href="https://azure.microsoft.com/en-us/services/cosmos-db/">CosmosDB</a>. A few months after that, Amazon followed suit with the <a href="https://en.wikipedia.org/wiki/Amazon_Web_Services">AWS</a>-based <a href="https://aws.amazon.com/neptune/">Neptune</a> graph database which supports both Gremlin (<a href="https://neo4j.com/developer/graph-database/">property graph</a>) and <a href="https://en.wikipedia.org/wiki/SPARQL">SPARQL</a> (<a href="https://en.wikipedia.org/wiki/Resource_Description_Framework">RDF</a>). Thus, as 2017 came to a close, DataStax, IBM, Microsoft, and Amazon were all leveraging TinkerPop3 in their respective graph products. This adoption by major technology firms solidified TinkerPop3's position in the graph community. While TinkerPop3 development slowly transitions to maintenance mode, Apache TinkerPop will not rest on its laurels and will continue to prove itself through theoretical innovation and subsequent high-quality software. TinkerPop4 plans to alleviate the current pains experienced by TinkerPop3 users and vendors while at the same time, advance the technology to new, unexpected levels of sophistication.</p>
+
+<cite>
+<a href="https://arxiv.org/abs/1508.03843">The Gremlin Graph Traversal Machine and Language</a> by Marko A. Rodriguez.
+</cite>
+
+<p>TinkerPop4's design philosophy can be summed up with one word: "agnosticism."
+<ul>
+<li><strong class="glow outline">Language environment agnosticism</strong>: TinkerPop4 will not be confined to the Java virtual machine. The Apache TinkerPop team will engage the C#, Python, Go, and other language communities to develop TinkerPop4 virtual machines for use with their communities' respective graph, language, and processor products. Along with TinkerPop3's Gremlin language variants (e.g., <a href="http://tinkerpop.apache.org/docs/current/reference/#gremlin-java">Gremlin-Java</a>, <a href="http://tinkerpop.apache.org/docs/current/reference/#gremlin-groovy">Gremlin-Groovy</a>, <a href="http://tinkerpop.apache.org/docs/current/reference/#gremlin-python">Gremlin-Python</a>, <a href="http://tinkerpop.apache.org/docs/current/reference/#gremlin-DotNet">Gremlin.NET</a>, <a href="http://tinkerpop.apache.org/docs/current/reference/#gremlin-javascript">Gremlin-JavaScript</a>, etc.), TinkerPop4 will also maintain virtual machine variants. This complication will be greatly ameliorated if TinkerPop4's bytecode specification and virtual machine architecture remain simple, easy to engineer, and verifiable via a language agnostic test suite.<br/><br/></li>
+
+<li><strong class="glow outline">Data language agnosticism</strong>: TinkerPop3's virtual machine and server are loosely coupled to the Gremlin language. TinkerPop4's virtual machine is only aware of a nested, array-based, primitive-valued, language-independent <a href="https://en.wikipedia.org/wiki/Bytecode">bytecode</a> specification. As such, Gremlin4 is just one of many languages that can control the TinkerPop4 virtual machine. <a href="https://en.wikipedia.org/wiki/SPARQL">SPARQL</a>, <a href="https://en.wikipedia.org/wiki/SQL">SQL</a>, <a href="https://en.wikipedia.org/wiki/Cypher_Query_Language">Cypher</a>, and others will sit side-by-side and on equal footing with Gremlin.<br/><br/></li> 
+
+<li><strong class="glow outline">Data structure agnosticism</strong>: TinkerPop has always been available to any graph system vendor. This tradition will continue in TinkerPop4. However, discussions are currently underway regarding potentially supporting other database data structures such as tables/rows, documents, and RDF. If this occurs, then TinkerPop4 will be poised to become a universal distributed virtual machine for all data systems (not just graph). This direction is being carefully considered from a theoretical, technical, and cultural perspective.<br/><br/></li>
+
+<li><strong class="glow outline">Data processor agnosticism</strong>: In TinkerPop3, there are two processing models: <code>standard</code> (<a href="https://en.wikipedia.org/wiki/Online_transaction_processing">OLTP</a> via Pipes) and <code>computer</code> (<a href="https://en.wikipedia.org/wiki/Online_analytical_processing">OLAP</a> via <a href="http://spark.apache.org">Apache Spark</a> and <a href="http://giraph.apache.org">Apache Giraph</a>). TinkerPop4 does not make an explicit distinction between real-time and batch analytical processing. As long as a data processor can transform the intermediate functional representation of the bytecode to a semantically-valid execution plan, then it can integrate with the TinkerPop4 virtual machine. The TinkerPop4 <code>java/</code> source folder currently supports (due in large part to <a href="http://beam.apache.org">Apache Beam</a>) TinkerPop Pipes, <a href="https://cloud.google.com/dataflow/">Google DataFlow</a>, <a href="http://flink.apache.org">Apache Flink</a>, <a href="http://spark.apache.org">Apache Spark</a>, <a href="http://apex.apache.org">Apache Apex</a>, and <a href="http://samza.apache.org">Apache Samza</a> with an <a href="https://akka.io/">Akka</a> and an <a href="http://reactivex.io/">RxJava</a> prototype currently in development.</li>
+</ul>
+</p>
+
+<cite>
+<a href="https://zenodo.org/record/1476234">The Graph Traversal Machine: Close Encounters of the Fourth Kind</a> <br/>by Marko A. Rodriguez and Stephen Mallette.
+</cite>
+
+<cite>
+<a href="https://zenodo.org/record/2565243">Stream Ring Theory</a> by Marko A. Rodriguez.
+</cite>
+
+<p><a href="the-path-to-tinkerpop4-images/tinkerpop4-architecture.png"><img src="the-path-to-tinkerpop4-images/tinkerpop4-architecture.png" style="margin-left:auto; margin-right:auto; display:block; width:68%;"/></a>
+<br/>
+As of April 2019, TinkerPop4 is in the prototyping stage of development (see the <code>tp4/</code> repository <a href="https://github.com/apache/tinkerpop/tree/tp4">branch</a>). Marko (as <a href="http://rredux.com">RReduX</a>) is looking to Amazon, Microsoft, IBM, and others to fund him as an independent full-time open source engineer working in collaboration with his Apache TinkerPop colleagues to bring TinkerPop4 to GA. If TinkerPop4 is going to outshine TinkerPop3, it will require Marko's full undivided attention.</p>
+
+<section>IBM JanusGraph</section>
+
+<p><a href="https://www.ibm.com/cloud/compose/janusgraph"><img src="the-path-to-tinkerpop4-images/gremlin-janusgraph.png" class="post-image-left" style="width:20%;"/></a><a href="https://janusgraph.org/">IBM's JanusGraph</a> is offered as a fully-managed <a href="https://www.ibm.com/cloud/compose/janusgraph">IBM Compose</a> cloud service and as a private enterprise graph database. JanusGraph is a fork of the <a href="http://titan.thinkaurelius.com/">Titan graph database</a> developed by Aurelius (led by Marko A. Rodriguez and Matthias Bröcheler) and later acquired by DataStax in 2015. IBM is currently using TinkerPop3 in a number of products across their organization &mdash; from internal artificial intelligence projects to the aforementioned external cloud service. Two known IBM AI projects leverage <a href="http://tinkerpop.apache.org/docs/current/reference/#sparql-gremlin">SPARQL-Gremlin</a> (developed by Apache TinkerPop committer <a href="http://harshthakkar.in/">Harsh Thakkar</a>). The problem with TinkerPop3's SPARQL-Gremlin implementation, and other non-property graph query languages, is that the working data structure of these languages are mapped to property graph semantics. As such, SPARQL-Gremlin is not <a href="https://www.w3.org/">W3C</a>-compliant because the underlying data structure is not RDF (i.e., property graphs are not founded on URI, literal, and blank node triple elements). TinkerPop4 is studying ways to support other data structures besides property graphs and if a breakthrough occurs, RDF would become a first-class citizen in TinkerPop4. Out of the box, every TinkerPop-enabled database vendor will be able to advertise W3C-compliant RDF/SPARQL support. Finally, for IBM's hosted graph offering, Gremlin Server will be significantly simplified. No longer will arbitrary <a href="https://en.wikipedia.org/wiki/Scripting_for_the_Java_Platform">JSR 223</a> scripts provide security risks nor will the results of distributed OLAP traversals be bottlenecked at the server. IBM's customers will be able to execute real-time, near-time, and batch-time traversals as TinkerPop4 will support a wide variety of data processors each optimized for different data access patterns &mdash; a necessary requirement for a product with an eclectic customer-base.</p>
+
+<section>Microsoft CosmosDB</section>
+
+<p><a href="https://azure.microsoft.com/en-us/services/cosmos-db/"><img src="the-path-to-tinkerpop4-images/gremlin-cosmosdb.png" class="post-image-left" style="width:20%;"/></a><a href="https://azure.microsoft.com/en-us/services/cosmos-db/">Microsoft's CosmosDB</a> is a distributed multi-model database whose graph-model component supports Gremlin. For CosmosDB, one of the primary shortcomings of TinkerPop3 is its dependence on the JVM. TinkerPop4 will make it easy for other language communities to develop a TinkerPop4 virtual machine. Thus, Microsoft will no longer have to coordinate Java and .NET code as a .NET-based virtual machine will be available to all .NET-based vendors. Moreover, CosmosDB will no longer be dependent on Java-based processors such as Apache Spark. Any .NET processing engine (e.g., <a href="https://en.wikipedia.org/wiki/Language_Integrated_Query">LINQ</a>) will be able to comfortably integrate with the .NET TinkerPop4 virtual machine. Next, CosmosDB's <a href="https://db-engines.com/en/system/Microsoft+Azure+Cosmos+DB">rapid expansion</a> in the database market is due in large part to its use of established languages and APIs. CosmosDB's document-model exposes the <a href="https://docs.microsoft.com/en-us/azure/cosmos-db/mongodb-introduction">MongoDB API</a>. CosmosDB's BigTable-model exposes the <a href="https://docs.microsoft.com/en-us/azure/cosmos-db/cassandra-introduction">Cassandra API</a>. CosmosDB's graph-model exposes the <a href="https://docs.microsoft.com/en-us/azure/cosmos-db/graph-introduction">Gremlin language</a>. Note that there is no <em>standard</em> property graph language. While Gremlin is widely adopted, <a href="https://neo4j.com/">Neo4j</a>'s <a href="https://en.wikipedia.org/wiki/Cypher_Query_Language">Cypher</a> language enjoys a large userbase and an extensive archive of top-quality documentation, tutorials, and online courses. If CosmosDB is confronted with a potential customer unwilling to migrate from Cypher to Gremlin, the <a href="https://github.com/opencypher/cypher-for-gremlin">Cypher-Gremlin</a> compiler that compiles Cypher to TinkerPop bytecode can provide an inroad to the Cypher user community. Writing language-to-bytecode compilers will be significantly easier with TinkerPop4 and CosmosDB will gain access to more potential customers.</p> 
+
+<section>Amazon Neptune</section>
+
+<p><a href="https://aws.amazon.com/neptune/"><img src="the-path-to-tinkerpop4-images/gremlin-neptune.png" class="post-image-left" style="width:20%;"/></a><a href="https://aws.amazon.com/neptune/">Amazon's Neptune</a> graph database offering is available through <a href="https://en.wikipedia.org/wiki/Amazon_Web_Services">AWS</a>. Neptune customers can either use the property graph or RDF data model and respective query language (Gremlin or SPARQL). Though once the data model is chosen, it can not be changed. If Neptune is looking to unify the property graph and RDF aspects of the product, then TinkerPop4's data structure agnosticism effort will provide the SPARQL-support required of their RDF customers while enhancing their experience as their SPARQL queries will be able to run in real-time, near-time, or batch-time. TinkerPop4 provides an assortment of processors such as a real-time single-threaded single-machine processor (e.g., TinkerPop Pipes processor), a real-time multi-threaded single-machine processor (e.g., <a href="http://reactivex.io/">RxJava</a> processor), a near-time distributed multi-machine processor (e.g., <a href="http://flink.apache.org">Apache Flink</a> processor), and a batch-time distributed multi-machine processor (e.g., <a href="http://spark.apache.org">Apache Spark</a> processor). With respect to multi-machine computing, note that Neptune currently does not partition its graph data structure across a cluster. If Neptune decides to support graph <a href="https://en.wikipedia.org/wiki/Shard_(database_architecture)">sharding</a>, then with the forthcoming <a href="https://akka.io/">Akka</a> processor, Neptune will immediately gain query routing, where traversers automatically migrate to the physical machine hosting their currently referenced vertex (i.e., data local processing). Thus, TinkerPop4 is positioned to provide Neptune all the processing engines necessary to efficiently evaluate their customers' variegated mix of Gremlin and SPARQL queries.</p>
+
+<section>Support Open Source Development</section>
+
+<p>The best open source software is developed by individuals seeking to create technology outside the complications of organizational politics and commercial competition. <a href="http://markorodriguez.com">Marko A. Rodriguez</a> is one such individual who is currently working as an independent engineer on Apache TinkerPop4. If your organization benefits (economically) from his work (past, present, or future), then support his journey into the exciting, uncharted dimension of TinkerPop4 [<a href="mailto:marko@rredux.com">contact</a>].
+<br/>
+<br/>
+<a href="http://tinkerpop.apache.org"><img src="the-path-to-tinkerpop4-images/apache-tinkerpop-logo.png" style="margin-left:auto; margin-right:auto; display:block; width:45%;"/></a>
+</p>
+
+<!-- (END) BLOG POST CONTENT -->
+			</div>
+		</div>
+	</div>
+	<!-- (BEGIN) FOOTER: NEEDS TO BE ON EVERY PAGE -->
+	<footer class="page-footer fixed-bottom">
+		<p style="display:inline-block; font-size: 15px;">&copy; 2019 </p>
+		<p class="foot-r">R</p><p class="foot-redux">ReduX, Inc.</p>
+	</footer>
+	<!-- (END) FOOTER: NEEDS TO BE ON EVERY PAGE -->
+</body>
+</html>
